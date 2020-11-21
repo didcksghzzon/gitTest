@@ -13,49 +13,28 @@ public class Algorithm {
 
 	}
 	
-	public String test01() throws NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static public void test01() {
+		int[] arrNum = {5, 11, 8, 2, 6, 4, 7, 1};
 		
-		System.out.println("height&width : ");
-		
-		String sData1 = br.readLine();
-		
-		System.out.println(sData1.substring(0, 1) + "만큼 반복");
-		
-		String sData2 = "";
-		
-		String[] viewResult;
-		String view = "";
-		
-		for(int i=0; i<Integer.parseInt(sData1.substring(0, 1)); i++) {
-			sData2 = br.readLine();
-			view = "";
-		//	System.out.println(sData2);
-			String[] sData3 = sData2.split("");
-			for(int j=0; j<sData3.length; j++) {
-				if(j % 2 == 0) {
-					
-				//	Integer.parseInt(sData3[j])
-					
-				} else {
-					
-				
+		for(int i=0; i<arrNum.length; i++) {
+			int minIndex = i;
+			for(int j=i; j<arrNum.length; j++) {
+				if(arrNum[minIndex] >= arrNum[j]) {
+					minIndex = j;
 				}
-			
-				/*
-				if(Integer.parseInt(sData3[j]) % 2 == 0) {
-					
-				}
-				*/
 			}
+			
+			int sTemp = arrNum[minIndex];
+			
+			arrNum[minIndex] = arrNum[i];
+			arrNum[i] = sTemp;
 		}
-		System.out.println("end");
 		
-		
-		
-		
-		
-		return "";
+		for(int i=0; i<arrNum.length; i++) {
+			System.out.println(arrNum[i]);
+		}
 	}
+	
+	
 
 }
